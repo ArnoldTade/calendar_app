@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --box-shadow-style: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+body {
+    background-color: #849e9e;
+}
+
+.navbar {
+    a {
+        color: #fff;
+    }
+
+}
+
+.container-home {
+    background-color: #fff;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    box-shadow: var(--box-shadow-style);
+}
+
+.container-calendar {
+    background-color: #fff;
+    box-shadow: var(--box-shadow-style);
+
+}
+
+.col-sm {
+    margin-top: 5px;
+}
+
+.bg-green {
+    background-color: #374949;
+
+}
+
+.container-table {
+    width: 100% !important;
+
+    td,
+    th {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+#calendar {
+    color: #374949;
+
+    .fc-daygrid-day-number {
+        color: #374949;
+        text-decoration: none;
+    }
+
+    .fc-col-header-cell-cushion {
+        color: #374949;
+        text-decoration: none;
+    }
+
+    .fc-highlight {
+        background-color: #aec1cf;
+    }
+
+    .fc-h-event .fc-event-main {
+        background-color: #374949;
+        max-height: 100%;
+    }
+}

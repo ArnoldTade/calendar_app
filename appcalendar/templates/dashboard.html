@@ -1,0 +1,61 @@
+{% include "_header.html" %}
+
+{% block title%}
+{% endblock %}
+
+
+<br>
+<section class="section-dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="container container-table">
+            <table class="table table-light table-sm">
+                <thead>
+                  <th>Name</th>
+                  <th>Action</th>
+                </thead>
+                <tbody>
+                    {% for book in bookedRooms %}
+                  <tr>
+                    <td>{{book.full_name}}</td>
+                    <td>
+                        <a href="{% url "viewBook" id=book.id %}" type="button" class="btn btn-success btn-sm">View</button>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="container container-calendar"><br>
+          <p class="text-start fs-5">Book Info</p><hr>
+          <p class="text-center fs-6 fw-bold">Name: {{ bookform.instance.full_name }}</p>
+          <p class="text-start fs-6">Arrival Date: {{ bookform.instance.arrive_date }}</p>
+          <p class="text-start fs-6">Departure Date: {{ bookform.instance.departure_date }}</p>
+          <hr>
+          <div id="calendar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>
+
+<script>
+  //Calendar
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      events: {{ bookings | safe }}
+    });
+
+    calendar.render();
+  });
+
+</script>
+
+{% include "_footer.html" %}
